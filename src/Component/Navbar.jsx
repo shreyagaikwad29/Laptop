@@ -7,7 +7,7 @@ const Navbar = () => {
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style={{height:'70px'}}>
             <div class="container-fluid">
-                <a class="navbar-brand" href="javascript:void(0)">Home</a>
+                <a class="navbar-brand" href="/">Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>

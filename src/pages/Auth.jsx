@@ -3,18 +3,16 @@ import { FaUser, FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import "./Auth.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const Auth = () => {
   const [action , setAction] = useState("Login");
   const navigate = useNavigate();
 
-  const handleSubmit = (e)=>{
-    e.preventDefault();
-    if ("Login") {
-      navigate.push('/Home');
-    }
+  const handleLogin = ()=>{
+    setAction("Login");
+    navigate('/');
   }
   return (
     <>
@@ -55,8 +53,8 @@ const Auth = () => {
         </div>
         {action==="Sign Up"?<div></div>:<div className="forget-password">forget passowrd? <span>click here</span></div>}
         <div className="submit-container">
-          <div className={action==="Login"?"submit gray":"button"} onClick={()=>{setAction("Sign Up")}}>Sign Up</div>
-          <div className={action==="Sign Up"?"submit gray":"button"} onClick={()=>{setAction("Login")}} onSubmit={handleSubmit}>Login</div>
+          <Link className={action==="Login"?"submit gray":"button"} onClick={()=>{setAction("Sign Up")}}>Sign Up</Link>
+          <Link className={action==="Sign Up"?"submit gray":"button"} onClick={handleLogin}>Login</Link>
         </div>
       </div>
     </>
