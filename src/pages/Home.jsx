@@ -11,10 +11,10 @@ const Home = (onShowAuth) => {
         <div className="col" style={{ textAlign: 'center', padding: '20px' }}>
             <h1>Welcome to Site !!!</h1>
             <p>Please log in or sign up to access more features.</p>
-            <Link to="/" className="button">Login / Sign Up</Link>
-            <div className="col-8">
+            <Link to="/Auth" className="button">Login / Sign Up</Link>
+            <div className="col-md-6 mx-auto mt-5">
                 <div className="card">
-                    <div className="card-header bg-success">
+                    <div className="card-header" style={{backgroundColor:'blueviolet'}}>
                         Client List
                     </div>
                     <div className="card-body">
@@ -42,10 +42,10 @@ const Home = (onShowAuth) => {
                         </div>
                         <div className="row pt-2">
                             <div className="col-6 text-center">
-                                <button className="button">Reset</button>
+                            <Link to="/" className="button text-decoration-none">Reset</Link>
                             </div>
                             <div>
-                            <Link to="/" className="button">Save</Link>
+                            <Link to="/" className="button text-decoration-none">Save</Link>
                             </div>
                         </div>
                     </div>
