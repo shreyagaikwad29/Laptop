@@ -1,10 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Poppins:wght@500;600;700;800&display=swap");
 
+body{
+ background: hsla(17, 95%, 50%, 1);
 
+background: linear-gradient(90deg, hsla(17, 95%, 50%, 1) 0%, hsla(42, 94%, 57%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(17, 95%, 50%, 1) 0%, hsla(42, 94%, 57%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(17, 95%, 50%, 1) 0%, hsla(42, 94%, 57%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F74C06", endColorstr="#F9BC2C", GradientType=1 );
+}
 
 :root{
-    --first-color: hsl(271, 76%, 53%);
-  --title-color: hsl(0, 0%, 40%);
+    --first-color: linear-gradient(90deg, hsla(17, 95%, 50%, 1) 0%, hsla(42, 94%, 57%, 1) 100%);
+  --title-color: hsl(0, 0%, 3%);
   --text-color: hsl(0, 0%, 50%);
   --body-color: hsl(0, 0%, 100%);
   --container-color: hsl(0, 0%, 93%);
@@ -35,7 +45,7 @@
     display: inline-block;
     color: var(--title-color);
     border: 1px solid var(--first-color);
-    padding: 15px 70px 15px 35px;
+    padding: 15px 28px 15px 28px;
     border-radius: 35px;
     font-family: var(--second-font);
     font-size: var(--small-font-size);
@@ -46,6 +56,7 @@
   
   .button:hover {
     color: var(--text-white);
+    background-color: black;
   } 
   
   .button::before {
@@ -62,16 +73,5 @@
     transform: translateX(0);
   }
   
-  .button__icon {
-    background-color: var(--first-color);
-    position: absolute;
-    inset-block: -2px;
-    right: 0;
-    width: 55px;
-    border-radius: 50%;
-    color: var(--text-white);
-    font-size: var(--large-font-size);
-    text-align: center;
-    line-height: 60px;
-  }
+ 
   

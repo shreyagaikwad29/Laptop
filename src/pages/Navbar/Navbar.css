@@ -28,6 +28,7 @@
 }
 
 .navbar{
+    font-family: var(--second-font);
     padding: 20px 0px;
     display: flex;
     justify-content: space-between;
@@ -42,9 +43,14 @@
 .navbar-menu{
     display: flex;
     list-style: none;
-    gap: 10px;
+    gap: 50px;
     color: var(--title-color);
     font-size: var(--large-font-size);
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 .navbar-right{
@@ -54,6 +60,19 @@
 
 }
 
+.button {
+    display: inline-block;
+    color: var(--title-color);
+    border: 1px solid var(--first-color);
+    padding: 15px 28px 15px 28px;
+    border-radius: 35px;
+    font-family: var(--second-font);
+    font-size: var(--small-font-size);
+    font-weight: var(--weight-500);
+    position: relative;
+    overflow: hidden;
+  }
+  
 .navbar button{
     background: transparent;
     font-size: 16px;
@@ -65,10 +84,37 @@
 }
 
 .navbar button:hover{
-    background-color: var(--first-color);
+    background-color: black;
+    color: var(--text-white);
+    border: none;
 }
 
 .navbar .active{
     padding-bottom: 2px;
-    border-bottom: 2px solid var(--first-color);
+    border-bottom: 2px solid var(--title-color);
+}
+
+.navbar .active a{
+    text-decoration: none;
+    color: var(--title-color);
+}
+
+.navbar a{
+    text-decoration: none;
+    color: var(--title-color);
+}
+
+.navbar-search-icon{
+    position: relative;
+    font-size: var(--h2-font-size);
+}
+
+.navbar-search-icon .dot{
+    position:absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: rgb(5, 5, 5);
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
 }

@@ -18,7 +18,7 @@
 }
 
 .text{
-    color: blueviolet;
+    color: rgb(53, 47, 47);
     font-family: var(--second-font); 
     font-size: var(--h1-font-size);
     font-weight: var(--weight-800);
@@ -30,7 +30,7 @@
     width: 61px;
     height: 6px;
     border-radius: 9px;
-    background-color: blueviolet;
+    background-color: rgb(53, 47, 47);
 }
 
 .inputs{
@@ -80,7 +80,7 @@
 }
 
 .forget-password span{
-    color: blueviolet;
+    color:  rgb(53, 47, 47);
     cursor: pointer;
 }
 
@@ -97,7 +97,7 @@
     width: 220px;
     height: 59px;
     color: #fff;
-    background-color: blueviolet;
+    background-color:  rgb(53, 47, 47);
     border-radius: 50px;
     font-size: var(--small-font-size);
     font-weight: var(--weight-500);

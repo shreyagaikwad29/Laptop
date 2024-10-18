@@ -2,16 +2,18 @@ import React from 'react'
 import "./Home.css";
 import {FiSend} from "react-icons/fi"
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 
 const Home = (onShowAuth) => {
 
 
   return (
+
     <div className="row">
         <div className="col" style={{ textAlign: 'center', padding: '20px' }}>
             <h1>Welcome to Site !!!</h1>
             <p>Please log in or sign up to access more features.</p>
-            <Link to="/Auth" className="button">Login / Sign Up</Link>
+            
             <div className="col-md-6 mx-auto mt-5">
                 <div className="card">
                     <div className="card-header" style={{backgroundColor:'blueviolet'}}>
