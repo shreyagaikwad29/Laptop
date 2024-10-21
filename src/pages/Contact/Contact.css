@@ -1,0 +1,11 @@
+
+
+.contact__button-icon {
+    font-size: 2rem;
+    line-height: 64px;
+  }
+
+
+.button:hover{
+  background-color: darkorange;
+}

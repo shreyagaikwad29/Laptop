@@ -6,58 +6,39 @@ import "./Auth.css";
 import { useNavigate, Link } from 'react-router-dom';
 
 
-const Auth = () => {
-  const [action , setAction] = useState("Login");
-  const navigate = useNavigate();
-
-  const handleLogin = ()=>{
-    setAction("Login");
-    navigate('/');
-  }
+const Auth = ({setShowLogin}) => {
+  const [currState,setCurrState] = useState("Login");
+  
   return (
-    <>
-      <div className="container">
-        <div className="header">
-          <div className="text">{action}</div>
-          <div className="underline"></div>
+   
+      <div className="login-popup">
+        <form className="login-popup-container">
+          <div className="login-popup-title">
+         <h2>{currState}</h2>
+         <img onClick={()=>setShowLogin(false)} src={MdAssessment.cross_icon} alt=""/>
+         </div>
+               <div className="login-popup-inputs">
+                {currState==="Login"?<></>:<input type="text" placeholder='Your name' required />}
+          <input type="text" placeholder='Your name' required />
+          <input type="email" placeholder='Your email' required />
+          <input type="password" placeholder='Your password' required />
+          </div>
+          <button>{currState==="Sign Up"?"Create account":"Login"}</button>
+          <div className ="login-popup-condition">
+            <input type="checkbox" required/>
+            <p>By counting, I agree to the terms of use & privacy policy.</p>
+            </div>
+            {currState==="Login"
+            ?<p>Create a new Account? <span onClick={()=>setCurrState("Sign Up")}>Click here</span></p>
+            : <p>Already have an account?<span  onClick={()=>setCurrState("Login")}>Login here</span></p>
+            }
+            
+           
+                  
+          </form>
+        
         </div>
-        <div className="inputs">
-          {action==="Login"?<div></div>:
-          <>
-          <div className="input">
-            <span>
-                <FaUser/>
-            </span>
-            <input type="text" placeholder='Name' required />
-          </div>
-          <div className="input">
-            <span>
-              <IoCall />
-            </span>
-            <input type="tel" placeholder='Contact Number' pattern="\d{10}" name="mobile" required/>
-          </div>
-          </>}
-          
-          <div className="input">
-            <span>
-              <MdEmail />
-            </span>
-            <input type="email" placeholder='Email ID' required />
-          </div>
-          <div className="input">
-            <span>
-              <FaLock />
-            </span>
-            <input type="password" placeholder='Password' required />
-          </div>
-        </div>
-        {action==="Sign Up"?<div></div>:<div className="forget-password">forget passowrd? <span>click here</span></div>}
-        <div className="submit-container">
-          <Link className={action==="Login"?"submit gray":"button"} onClick={()=>{setAction("Sign Up")}}>Sign Up</Link>
-          <Link className={action==="Sign Up"?"submit gray":"button"} onClick={handleLogin}>Login</Link>
-        </div>
-      </div>
-    </>
+       
   )
 }
 
