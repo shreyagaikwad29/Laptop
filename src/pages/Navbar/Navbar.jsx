@@ -11,12 +11,12 @@ const Navbar = () => {
     
   return (
     <div className="navbar">
-        <FaLaptopCode className='logo'/>
+        <img src="" alt="" />
         <ul className="navbar-menu">
             <li onClick={()=>{setMenu("Home")}} className={menu==="Home"?"active":""}><a href='/'>Home</a></li>
-            <li onClick={()=>{setMenu("About")}} className={menu==="About"?"active":""}>About Us</li>
-            <li onClick={()=>{setMenu("Product")}}className={menu==="Product"?"active":""}>Products</li>
-            <li onClick={()=>{setMenu("Contact")}} className={menu==="Contact"?"active":""}>Contact Us</li>
+            <li onClick={()=>{setMenu("About")}} className={menu==="About"?"active":""}><a href='About'>About Us</a></li>
+            <li onClick={()=>{setMenu("Product")}}className={menu==="Product"?"active":""}><a href='Product'>Product</a></li>
+            <li onClick={()=>{setMenu("Contact")}} className={menu==="Contact"?"active":""}><a href='Contact'>Contact Us</a></li>
         </ul>
 
         <div className="navbar-right">
@@ -24,7 +24,9 @@ const Navbar = () => {
                 <FaBasketShopping />
                 <div className="dot"></div>
             </div>
-            <Link to="/Auth" className="button">Login / Sign Up</Link>
+            <p>
+                <a href="/Login">Login</a> | <a href="/SignUp">Sign Up</a> | <a href="/UserInfo">User Info</a>
+            </p>
         </div>
 
     </div>
