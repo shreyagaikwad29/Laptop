@@ -1,0 +1,117 @@
+{
+  "users": [
+    {
+      "id": "3175",
+      "name": "shreya",
+      "email": "shreya@gmail.com",
+      "mobile": "1234567890",
+      "password": "shreya",
+      "confirmPassword": "shreya"
+    },
+    {
+      "id": "a710",
+      "name": "shreya",
+      "email": "shreya@gmail.com",
+      "mobile": "1234567890",
+      "password": "shreya",
+      "confirmPassword": "shreya"
+    },
+    {
+      "id": "564c",
+      "name": "shreya",
+      "email": "shreya@gmail.com",
+      "mobile": "1234567890",
+      "password": "shreya",
+      "confirmPassword": "shreya"
+    },
+    {
+      "id": "0cad",
+      "name": "shreya",
+      "email": "shreya@gmail.com",
+      "mobile": "1234567890",
+      "password": "shreya",
+      "confirmPassword": "shreya"
+    },
+    {
+      "id": "a41c",
+      "name": "shreya",
+      "email": "shreya@gmail.com",
+      "mobile": "1234567890",
+      "password": "shreya",
+      "confirmPassword": "shreya"
+    },
+    {
+      "id": "bb7f",
+      "name": "shreya",
+      "email": "shreya@gmail.com",
+      "mobile": "1234567890",
+      "password": "shreya",
+      "confirmPassword": "shreya"
+    },
+    {
+      "id": "c19a",
+      "name": "sneha",
+      "email": "sneha@gmail.com",
+      "mobile": "8108411828",
+      "password": "sneha123",
+      "confirmPassword": "sneha123"
+    },
+    {
+      "id": "6b32",
+      "email": "shreya@gmail.com",
+      "password": "shreya"
+    },
+    {
+      "id": "ff2f",
+      "email": "shreya@gmail.com",
+      "password": "shreya"
+    },
+    {
+      "id": "3b0f",
+      "email": "shreya@gmail.com",
+      "password": "shreya"
+    },
+    {
+      "id": "70ea",
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "mobile": "8108411828",
+      "password": "abc@123",
+      "confirmPassword": "abc@123"
+    },
+    {
+      "id": "ff21",
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "mobile": "8108411828",
+      "password": "abc@123",
+      "confirmPassword": "abc@123"
+    },
+    {
+      "id": "279c",
+      "email": "abc@gmail.com",
+      "password": "abc@123"
+    },
+    {
+      "id": "8a26",
+      "name": "qwerty",
+      "email": "qwerty@gmail.com",
+      "mobile": "1234567890",
+      "password": "qwerty@123",
+      "confirmPassword": "qwerty@123"
+    },
+    {
+      "id": "1985",
+      "email": "qwerty@gmail.com",
+      "password": "qwerty@123"
+    },
+    {
+      "id": "5eb2",
+      "name": "Sneha",
+      "email": "Sneha123@gmail.com",
+      "mobile": "9819771028",
+      "password": "Sneha@123",
+      "confirmPassword": "Sneha@123"
+    }
+  ]
+}

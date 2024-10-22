@@ -1,60 +1,117 @@
-import React from 'react'
+import React from "react";
+import {
+  FaEnvelopeOpen,
+  FaPhoneSquareAlt,
+  FaFacebookF,
+  FaTwitter,
+  FaYoutube,
+  FaDribbble,
+} from "react-icons/fa";
+
+import { FiSend } from "react-icons/fi";
+
 import "./Contact.css";
-import {FiSend} from "react-icons/fi"
-import { Link } from 'react-router-dom';
-import Header from '../Header/Header';
 
-
-
-const Contact = (onShowAuth) => {
+const Contact = () => {
   return (
-    <div>
-     <div className="row">
-        
-            
-            <div className="col-md-6 mx-auto mt-5">
-                <div className="card">
-                    <div className="card-header" style={{backgroundColor:'blueviolet'}}>
-                        Get In Touch
-                    </div>
-                    <div className="card-body">
-                        <div className="row">
-                            <div className="col-6">
-                                <label for="">Name</label>
-                                <input type="text" className="form-control" placeholder='Enter your Name'/>
-                            </div>
-                            <div className="col-6">
-                                <label for="">Mobile No.</label>
-                                <input type="text" className="form-control" placeholder='Enter your Mobile Number'/>
-                            </div>
-                            <div className="col-6">
-                                <label for="">Email ID</label>
-                                <input type="email" className="form-control" placeholder='Enter your Email ID'/>
-                            </div>
-                            <div className="col-6">
-                                <label for="">Type Of Customer </label>
-                                <input type="text" className="form-control" placeholder='Enter your Type'/>
-                            </div>
-                            <div className="col-6">
-                                <label for="">Issue</label>
-                                <textarea placeholder='Your Issue' className='form-control'></textarea>
-                            </div>
-                        </div>
-                        <div className="row pt-2">
-                            <div className="col-6 text-center">
-                            <Link to="/" className="button text-decoration-none">Reset</Link>
-                            </div>
-                            <div>
-                            <Link to="/" className="button text-decoration-none">Save</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-  )
-}
+    <section className="contact section">
+      <h2 className="section__title">
+        Get In <span>Touch</span>
+      </h2>
 
-export default Contact
+      <div className="contact__container container grid">
+        <div className="contact__data">
+          <h3 className="contact__title">Don't be Shy !</h3>
+
+          <p className="contact__description">
+            Feel free to get in touch with me. I am always open to discussing
+            new projects, creative ideas or opportunities to be part of your
+            visions.
+          </p>
+
+          <div className="contact__info">
+            <div className="info__item">
+              <FaEnvelopeOpen className="info__icon" />
+
+              <div>
+                <span className="info__title">Mail Me</span>
+                <h4 className="info__desc">shreyaagaikwad11@gmail.com</h4>
+              </div>
+            </div>
+
+            <div className="info__item">
+              <FaPhoneSquareAlt className="info__icon" />
+
+              <div>
+                <span className="info__title">Call Me</span>
+                <h4 className="info__desc">8108411828</h4>
+              </div>
+            </div>
+          </div>
+
+          <div className="contact__socials">
+            <a href="https://Twitter.com" className="contact__social-link">
+              <FaFacebookF />
+            </a>
+
+            <a href="https://twitter.com" className="contact__social-link">
+              <FaTwitter />
+            </a>
+
+            <a href="https://youtube.com" className="contact__social-link">
+              <FaYoutube />
+            </a>
+
+            <a href="https://dribbble.com" className="contact__social-link">
+              <FaDribbble />
+            </a>
+          </div>
+        </div>
+
+        <form className="contact__form">
+          <div className="form__input-group">
+            <div className="form__input-div">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="form__control"
+              />
+            </div>
+
+            <div className="form__input-div">
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="form__control"
+              />
+            </div>
+
+            <div className="form__input-div">
+              <input
+                type="text"
+                placeholder="Your Subject"
+                className="form__control"
+              />
+            </div>
+          </div>
+
+          <div className="form__input-div">
+            <textarea
+              placeholder="Your Message"
+              className="form__control textarea"
+            ></textarea>
+          </div>
+
+          <button className="button">
+            Send Message
+            <span className="button__icon contact__button-icon">
+              <FiSend />
+            </span>
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
