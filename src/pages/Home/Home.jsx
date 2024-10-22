@@ -7,17 +7,20 @@ const Home = (onShowAuth) => {
     const handleClick = () => {
         alert('Button clicked!');
       };
-
+    
 
   return (
+   
+    
     <div className="row">
         <div className="col" style={{padding:'120px'}}>
             <h1 style={{textAlign:'center',padding:'30px',color:'white'}}>AutumnDigi</h1>
             <p style={{textAlign:'center',color:'white'}}>Complete solutions for all your fintech needs</p>
-            <button onClick={handleClick} className='button'>Visit us to know more</button>
+            <button onClick={handleClick} className='btn-a'>Visit us to know more</button>
 
         </div>
     </div>
+   
 )
 }
 

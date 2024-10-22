@@ -125,6 +125,7 @@
     font-weight: var(--weight-500);
     position: relative;
     overflow: hidden;
+    color:black;
   }
   
   .button:hover {

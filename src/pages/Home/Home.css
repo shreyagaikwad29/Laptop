@@ -11,22 +11,21 @@ body{
     line-height: 64px;
   }
 
-
 .button:hover{
   background-color: darkorange;
 }
-.button {
+.btn-a{
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  margin: 10px 470px;
   font-size: 16px;
-  margin: 10px 500px ;
-  cursor: pointer;
-  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+  font-family: var(--second-font);
+  
+  
+
 }
 
 .button:hover {
