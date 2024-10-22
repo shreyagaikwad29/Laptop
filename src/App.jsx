@@ -1,6 +1,5 @@
 import React from 'react'
 import Home from "./pages/Home/Home";
-import Auth from "./pages/Auth/Auth";
 import { Route, Routes } from 'react-router-dom';
 import Navbar from "./pages/Navbar/Navbar";
 import "./App.css"
@@ -17,7 +16,7 @@ const App=()=> {
             <Route path="/About" element={<About/>}/>
             <Route path="/Product" element={<Product/>}/>
             <Route path="/Contact" element={<Contact/>}/>
-            <Route path="/Auth" element={<Auth/>}/>
+          
        </Routes>
     </>
   )
