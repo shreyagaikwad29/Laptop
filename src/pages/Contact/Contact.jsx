@@ -14,7 +14,7 @@ import "./Contact.css";
 
 const Contact = () => {
   return (
-    <section className="contact section">
+    <section className="contact section"style={{color:'white'}}>
       <h2 className="section__title">
         Get In <span>Touch</span>
       </h2>

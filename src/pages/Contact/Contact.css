@@ -74,7 +74,7 @@
   .form__control {
     border: 1px solid var(--container-color);
     background-color: var(--container-color);
-    color: var(--title-color);
+    color: var(--body-color);
     width: 100%;
     padding: 12px 24px;
     border-radius: 30px;
@@ -106,6 +106,7 @@
     font-weight: var(--weight-800);
     text-align: center;
     margin-bottom: 70px;
+    color: white;
   }
   
   .section__title span {
@@ -115,7 +116,7 @@
 
   .button {
     display: inline-block;
-    color: var(--title-color);
+    color: var(--body-color);
     border: 1px solid black;
     padding: 20px;
     border-radius: 35px;
@@ -135,7 +136,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-color: var(--title-color);
+    background-color: var(--body-color);
     transform: translateX(100%);
     z-index: -1;
     transition: all 0.2s ease-in-out;
