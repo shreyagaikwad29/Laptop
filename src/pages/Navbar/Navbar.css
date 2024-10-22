@@ -37,8 +37,10 @@
 
 .navbar .logo{
     width: 60px;
-    height: 40px;
+    height: 30px;
     padding-left: 20px;
+    background-color: #fff;
+    border-radius: 50px;
     
 }
 

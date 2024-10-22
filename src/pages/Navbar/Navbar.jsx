@@ -22,10 +22,10 @@ const Navbar = () => {
         </ul>
 
         <div className="navbar-right">
-            <div className="navbar-search-icon">
+            {/* <div className="navbar-search-icon">
                 <FaBasketShopping />
                 <div className="dot"></div>
-            </div>
+            </div> */}
             <p>
                 <a href="/Login">Login</a> | <a href="/SignUp">Sign Up</a> | <a href="/UserInfo">User Info</a>
             </p>
