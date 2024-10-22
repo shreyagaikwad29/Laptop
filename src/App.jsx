@@ -9,6 +9,7 @@ import Login from './pages/Auth/Login';
 import SignUp from './pages/Auth/SignUp';
 import UserInfo from './pages/Auth/UserInfo';
 import About from './pages/About/About';
+import Footer from './pages/Footer/Footer';
 
 const App=()=> {
   return (
@@ -23,8 +24,8 @@ const App=()=> {
             <Route path='Login' element={<Login/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
             <Route path='UserInfo' element={<UserInfo/>}/>
-
        </Routes>
+       <Footer/>
     </>
   )
 }
