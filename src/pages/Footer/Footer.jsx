@@ -1,34 +1,65 @@
 import React from 'react';
 import './Footer.css'; // Import a CSS file for styling
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaYoutube,
+ FaInstagram,
+ FaEnvelopeOpen,
+  FaPhoneSquareAlt,
+
+} from "react-icons/fa";
+import logo from "../../assets/logo.png";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-top">
-        <div className="language-selector">
-          <select name="language" id="language-select">
-            <option value="en">English, USA</option>
-            <option value="es">Spanish</option>
-            {/* Add other languages here */}
-          </select>
-        </div>
-        <div className="social-media">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-facebook"></i>
-          </a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-youtube"></i>
-          </a>
-        </div>
+     <div className="footer-top">
+      <img src={logo} className='logo'/>
+      <h1 style={{color:'white'}}>AutumnDigi</h1>
+      
+      <p>Lorem ipsum dolor sit amet consectetur <br />adipisicing elit. Provident fugit quia optio <br />voluptas, dolores, temporibus vero similique<br /> laudantium, impedit perferendis voluptatem iste.<br /> Cupiditate consequatur culpa, iusto<br /> veniam suscipit eum aperiam.</p>
+      <div className="contact__info">
+            <div className="info__item">
+              <FaEnvelopeOpen className="info__icon" />
+
+              <div>
+                <span className="info__title">Mail Me</span>
+                <h4 className="info__desc">shreyaagaikwad11@gmail.com</h4>
+              </div>
+            </div>
+
+            <div className="info__item">
+              <FaPhoneSquareAlt className="info__icon" />
+
+              <div>
+                <span className="info__title">Call Me</span>
+                <h4 className="info__desc">8108411828</h4>
+              </div>
+            </div>
+          </div>
+        
+        <div className="contact__socials">
+            <a href="https://Twitter.com" className="contact__social-link">
+              <FaTwitter />
+            </a>
+
+            <a href="https://instagram.com" className="contact__social-link">
+              <FaInstagram />
+            </a>
+
+            <a href="https://facebook.com" className="contact__social-link">
+              <FaFacebookF />
+            </a>
+
+            <a href="https://youtube.com" className="contact__social-link">
+              <FaYoutube />
+            </a>
+          </div>
+        
       </div>
-      <div className="footer-bottom">
-        <div className="footer-column">
+      <div className="footer-bottom row">
+        <div className="footer-column ">
           <h4>Product</h4>
           <ul>
             <li><a href="#">Download</a></li>
