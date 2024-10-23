@@ -62,7 +62,9 @@
 // }
 
 // export default Auth
-import React from 'react';
+
+
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -71,6 +73,7 @@ import { useNavigate } from 'react-router-dom';// Import useHistory for navigati
 
 const SignUp = () => {
     const navigate = useNavigate(); // Initialize useHistory
+    const [popupMessage, setPopupMessage] = useState('');
 
     const formik = useFormik({
         initialValues: {
@@ -97,20 +100,25 @@ const SignUp = () => {
                 .oneOf([Yup.ref('password'), null], 'Passwords must match')
                 .required('Required'),
         }),
+        // onSubmit: async (values) => {
+        //     try {
+        //         const response = await axios.post('http://localhost:5000/users', values);
+        //         localStorage.setItem('user', JSON.stringify(response.data));
+        //         console.log(response.data); // Handle successful sign-up
+        //     } catch (error) {
+        //         console.error('Sign-up failed:', error.response.data); // Handle error
+        //     }
+        // },
         onSubmit: async (values) => {
             try {
                 const response = await axios.post('http://localhost:5000/api/signup', values);
                 localStorage.setItem('user', JSON.stringify(response.data));
-                alert(`Username: ${values.name}\nSign-up successfully done!`);
-                navigate('/login'); // Redirect to the login page
+                setPopupMessage(`Username: ${values.name}\nSign-up successful!`);
+                navigate('/login'); // Set success message
+                console.log(response.data); // Handle successful sign-up
             } catch (error) {
-                if (error.response) {
-                    console.error('Sign-up failed with server error:', error.response.data);
-                    alert('Sign-up failed: ' + error.response.data.message);
-                } else {
-                    console.error('Sign-up failed:', error.message);
-                    alert('Sign-up failed: ' + error.message);
-                }
+                setPopupMessage('Sign-up failed: ' + error.response.data.message); // Set error message
+                console.error('Sign-up failed:', error.response.data); // Handle error
             }
         },
     });
@@ -196,6 +204,12 @@ const SignUp = () => {
 
                 <button type="submit" className="signup-button">Sign Up</button>
             </form>
+            {popupMessage && (
+                <div className="popup-message">
+                    {popupMessage}
+                </div>
+            )}
+            
         </div>
     );
 };
