@@ -62,14 +62,16 @@
 // }
 
 // export default Auth
-
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import './SignUp.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';// Import useHistory for navigation
 
 const SignUp = () => {
+    const navigate = useNavigate(); // Initialize useHistory
+
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -97,11 +99,18 @@ const SignUp = () => {
         }),
         onSubmit: async (values) => {
             try {
-                const response = await axios.post('http://localhost:5000/users', values);
+                const response = await axios.post('http://localhost:5000/api/signup', values);
                 localStorage.setItem('user', JSON.stringify(response.data));
-                console.log(response.data); // Handle successful sign-up
+                alert(`Username: ${values.name}\nSign-up successfully done!`);
+                navigate('/login'); // Redirect to the login page
             } catch (error) {
-                console.error('Sign-up failed:', error.response.data); // Handle error
+                if (error.response) {
+                    console.error('Sign-up failed with server error:', error.response.data);
+                    alert('Sign-up failed: ' + error.response.data.message);
+                } else {
+                    console.error('Sign-up failed:', error.message);
+                    alert('Sign-up failed: ' + error.message);
+                }
             }
         },
     });

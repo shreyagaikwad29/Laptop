@@ -10,6 +10,8 @@ import UserInfo from './pages/Auth/UserInfo';
 import About from './pages/About/About';
 import Footer from './pages/Footer/Footer';
 import Features from './pages/Features/Features';
+import TicketForm from './pages/Tickets/TicketForm';
+import TicketList from './pages/Tickets/TicketList';
 
 const App=()=> {
   return (
@@ -24,7 +26,9 @@ const App=()=> {
             <Route path='Login' element={<Login/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
             <Route path='UserInfo' element={<UserInfo/>}/>
-       </Routes>
+            <Route path='TicketForm' element={<TicketForm/>}/>
+            <Route path='tickets' element={<TicketList/>}/>                   
+        </Routes>
        <Footer/>
     </>
   )
