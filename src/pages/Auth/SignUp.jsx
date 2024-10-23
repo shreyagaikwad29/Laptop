@@ -63,13 +63,17 @@
 
 // export default Auth
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import './SignUp.css'; // Import the CSS file
 
 const SignUp = () => {
+    const [popupMessage, setPopupMessage] = useState('');
+   
+
+
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -95,12 +99,23 @@ const SignUp = () => {
                 .oneOf([Yup.ref('password'), null], 'Passwords must match')
                 .required('Required'),
         }),
+        // onSubmit: async (values) => {
+        //     try {
+        //         const response = await axios.post('http://localhost:5000/users', values);
+        //         localStorage.setItem('user', JSON.stringify(response.data));
+        //         console.log(response.data); // Handle successful sign-up
+        //     } catch (error) {
+        //         console.error('Sign-up failed:', error.response.data); // Handle error
+        //     }
+        // },
         onSubmit: async (values) => {
             try {
                 const response = await axios.post('http://localhost:5000/users', values);
                 localStorage.setItem('user', JSON.stringify(response.data));
+                setPopupMessage('Sign-up successful!'); // Set success message
                 console.log(response.data); // Handle successful sign-up
             } catch (error) {
+                setPopupMessage('Sign-up failed: ' + error.response.data.message); // Set error message
                 console.error('Sign-up failed:', error.response.data); // Handle error
             }
         },
@@ -187,6 +202,12 @@ const SignUp = () => {
 
                 <button type="submit" className="signup-button">Sign Up</button>
             </form>
+            {popupMessage && (
+                <div className="popup-message">
+                    {popupMessage}
+                </div>
+            )}
+            
         </div>
     );
 };

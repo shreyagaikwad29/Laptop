@@ -1,3 +1,11 @@
+section{
+  background-image: url(../../assets/img1.webp);
+  background-position: center;
+  background-size: cover;
+ 
+  background-repeat: no-repeat;
+  height: 150vh;
+}
 .contact__container {
     grid-template-columns: 4fr 8fr;
   }
@@ -117,7 +125,7 @@
   .button {
     display: inline-block;
     color: var(--body-color);
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 20px;
     border-radius: 35px;
     font-family: var(--second-font);
@@ -125,7 +133,7 @@
     font-weight: var(--weight-500);
     position: relative;
     overflow: hidden;
-    color:black;
+    color:white;
   }
   
   .button:hover {

@@ -5,7 +5,7 @@ import { IoIosAnalytics, IoIosBookmarks, IoIosBarcode } from "react-icons/io";
 
 const Features = () => {
   return (
-    <section className="features-section">
+    <div className="features-section">
       <h2 className="section-title">FEATURES</h2>
       <p className="section-subtitle">You can find the following features with AG</p>
       <div className="features-container">
@@ -55,7 +55,7 @@ const Features = () => {
           
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
