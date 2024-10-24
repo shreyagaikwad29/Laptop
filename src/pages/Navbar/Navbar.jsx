@@ -16,7 +16,7 @@ const Navbar = () => {
 
         <ul className="navbar-menu">
             <li onClick={()=>{setMenu("Home")}} className={menu==="Home"?"active":""}><a href='/'>Home</a></li>
-            <li onClick={()=>{setMenu("About")}} className={menu==="About"?"active":""}><a href='About'>About Us</a></li>
+            <li onClick={()=>{setMenu("About")}} className={menu==="About"?"active":""}><a href='tickets'>Ticket</a></li>
             <li onClick={()=>{setMenu("Features")}}className={menu==="Features"?"active":""}><a href='Features'>Features</a></li>
             <li onClick={()=>{setMenu("Contact")}} className={menu==="Contact"?"active":""}><a href='Contact'>Contact Us</a></li>
         </ul>

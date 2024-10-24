@@ -1,14 +1,16 @@
 import React from 'react'
 import "./Home.css";
 import {FiSend} from "react-icons/fi"
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import TicketForm from '../Tickets/TicketForm';
 
+
 const Home = (onShowAuth) => {
-    // const handleClick = () => {
-    //     alert('Button clicked!');
-    //   };
-    
+    const navigate = useNavigate();
+
+    const handlepage =()=>{
+        navigate('/ticket');
+    }
 
   return (
    
@@ -17,7 +19,7 @@ const Home = (onShowAuth) => {
         <div className="col" style={{padding:'120px'}}>
             <h1 style={{textAlign:'center',padding:'30px',color:'white'}}>AutumnDigi</h1>
             <p style={{textAlign:'center',color:'white'}}>Complete solutions for all your fintech needs</p>
-            <button onClick={handleClick} className='btn-a'><a href={<TicketForm/>}>Visit us to know more</a></button>
+            <button className='btn-a' onClick={handlepage} >Visit us to know more</button>
 
         </div>
     </div>
