@@ -10,6 +10,7 @@
     "axios": "^1.7.7",
     "concurrently": "^9.0.1",
     "cors": "^2.8.5",
+    "express": "^4.21.1",
     "formik": "^2.4.6",
     "ionicons": "^7.4.0",
     "react": "^18.3.1",
@@ -26,6 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +46,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

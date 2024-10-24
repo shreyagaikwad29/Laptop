@@ -20,14 +20,14 @@ const App=()=> {
        <Routes>
             <Route path="/" element={<Home/>}/>
 
-            <Route path="About" element={<About/>}/>
+            <Route path='tickets' element={<TicketList/>}/>  
             <Route path="Features" element={<Features/>}/>
             <Route path="Contact" element={<Contact/>}/>
             <Route path='Login' element={<Login/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
             <Route path='UserInfo' element={<UserInfo/>}/>
-            <Route path='TicketForm' element={<TicketForm/>}/>
-            <Route path='tickets' element={<TicketList/>}/>                   
+            <Route path='ticket' element={<TicketForm/>}/>
+                             
         </Routes>
        <Footer/>
     </>

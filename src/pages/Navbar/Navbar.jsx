@@ -13,6 +13,7 @@ const Navbar = () => {
         setIsMobile(!isMobile);
     };
 
+
     return (
         <div className="navbar">
             <img src={logo} className='logo' alt="Logo" />
@@ -30,7 +31,7 @@ const Navbar = () => {
             <button className="mobile-menu-icon" onClick={toggleMenu}>
                 {isMobile ? '✖' : '☰'}
             </button>
-        </div>
+            </div>
     )
 }
 

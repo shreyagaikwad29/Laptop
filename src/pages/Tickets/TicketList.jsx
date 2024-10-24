@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './TicketList.css'; // Import the CSS file
 
 const TicketList = () => {
   const [tickets, setTickets] = useState([]);
@@ -18,9 +19,9 @@ const TicketList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="ticket-list-container">
       <h2>Tickets List</h2>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>Ticket Number</th>
