@@ -1,31 +1,22 @@
-import React from 'react'
+import React from 'react';
 import "./Home.css";
-import {FiSend} from "react-icons/fi"
 import { Link } from 'react-router-dom';
 import TicketForm from '../Tickets/TicketForm';
 
-const Home = (onShowAuth) => {
-    // const handleClick = () => {
-    //     alert('Button clicked!');
-    //   };
-    
-
-  return (
-   
-    
-    <div className="row">
-        <div className="col" style={{padding:'120px'}}>
-            <h1 style={{textAlign:'center',padding:'30px',color:'white'}}>AutumnDigi</h1>
-            <p style={{textAlign:'center',color:'white'}}>Complete solutions for all your fintech needs</p>
-            <button onClick={handleClick} className='btn-a'><a href={<TicketForm/>}>Visit us to know more</a></button>
-
+const Home = () => {
+    return (
+        <div className="row">
+            <div className="col">
+                <h1 className="title">AutumnDigi</h1>
+                <p className="description">Complete solutions for all your fintech needs</p>
+                <Link to="/ticket-form" className="btn-a">Visit us to know more</Link>
+            </div>
         </div>
-    </div>
-   
-)
+    );
 }
 
 export default Home;
+
 
 
 

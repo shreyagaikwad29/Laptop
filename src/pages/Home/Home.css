@@ -1,29 +1,51 @@
-.col{
+.col {
   background-image: url("../../assets/bg.jpg");
   background-position: center;
-    background-size: cover;
-    position: relative;
-    background-repeat: no-repeat;
-    height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px; /* Add padding for mobile */
 }
-.contact__button-icon {
-    font-size: 2rem;
-    line-height: 64px;
-  }
 
-.btn-a{
+.title {
+  padding: 30px;
+  font-size: 2.5rem; /* Large title size */
+}
+
+.description {
+  font-size: 1.2rem; /* Slightly larger description */
+}
+
+.btn-a {
   background-color: #4CAF50; /* Green */
   color: white;
   border: none;
-  margin: 10px 470px;
+  margin-top: 20px;
+  padding: 10px 20px;
   font-size: 16px;
-  width: 200px;
-  height: 40px;
   font-family: var(--second-font);
+  text-decoration: none; /* Remove underline for the link */
+  border-radius: 5px; /* Add rounded corners */
 }
 
-.col{
-  display: block;
-  align-items: center;
-  justify-content: center;
+/* Media Queries */
+@media (max-width: 768px) {
+  .title {
+      font-size: 2rem; /* Adjust title size for mobile */
+  }
+
+  .description {
+      font-size: 1rem; /* Adjust description size for mobile */
+  }
+
+  .btn-a {
+      width: 60%; /* Full width button on mobile */
+      margin: 10px 0; /* Margin adjustments */
+  }
 }
