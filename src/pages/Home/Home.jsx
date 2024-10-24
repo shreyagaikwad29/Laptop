@@ -13,8 +13,6 @@ const Home = (onShowAuth) => {
     }
 
   return (
-   
-    
     <div className="row">
         <div className="col" style={{padding:'120px'}}>
             <h1 style={{textAlign:'center',padding:'30px',color:'white'}}>AutumnDigi</h1>
