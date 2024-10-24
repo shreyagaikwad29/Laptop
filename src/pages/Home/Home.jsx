@@ -1,6 +1,5 @@
-import React from 'react'
+import React from 'react';
 import "./Home.css";
-import {FiSend} from "react-icons/fi"
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import TicketForm from '../Tickets/TicketForm';
 
@@ -18,11 +17,9 @@ const Home = (onShowAuth) => {
             <h1 style={{textAlign:'center',padding:'30px',color:'white'}}>AutumnDigi</h1>
             <p style={{textAlign:'center',color:'white'}}>Complete solutions for all your fintech needs</p>
             <button className='btn-a' onClick={handlepage} >Visit us to know more</button>
-
         </div>
-    </div>
-   
-)
+        </div>
+    );
 }
 
 export default Home;
@@ -30,7 +27,8 @@ export default Home;
 
 
 
-    // <div className="row">
+
+    {/* // <div className="row">
     //     <div className="col" style={{padding: '20px' }}>
     //         <h1 style={{textAlign:'center' }}>Welcome to Site !!!</h1>
     //         <p style={{textAlign:'center' }}>Please log in or sign up to access more features.</p>
@@ -80,4 +78,4 @@ export default Home;
     //     </div>
     // </div>
  
-
+ */}
