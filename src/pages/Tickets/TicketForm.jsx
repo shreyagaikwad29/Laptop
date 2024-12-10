@@ -57,7 +57,7 @@ const TicketForm = () => {
       <h2>Create Ticket</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
+          <label>Name:</label> 
           <input
             type="text"
             name="name"

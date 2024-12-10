@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaEnvelopeOpen,
   FaPhoneSquareAlt,
@@ -13,6 +13,27 @@ import { FiSend } from "react-icons/fi";
 import "./Contact.css";
 
 const Contact = () => {
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleInput = (e) =>{
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setContact({
+      ...contact,
+      [name] : value,
+    })
+  };
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    console.log(contact);
+};
   return (
     <section className="contact section"style={{color:'white'}}>
       <h2 className="section__title">
@@ -44,7 +65,7 @@ const Contact = () => {
 
               <div>
                 <span className="info__title">Call Me</span>
-                <h4 className="info__desc">8108411828</h4>
+                <h4 className="info__desc">9988776655</h4>
               </div>
             </div>
           </div>
@@ -68,29 +89,44 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="contact__form">
+        <form className="contact__form" onSubmit={handleSubmit}>
           <div className="form__input-group">
             <div className="form__input-div">
               <input
                 type="text"
+                name="name"
+                required
                 placeholder="Your Name"
                 className="form__control"
+                onChange={handleInput}
+                autoComplete="off"
+                value={contact.name}
               />
             </div>
 
             <div className="form__input-div">
               <input
                 type="email"
+                name="email"
+                required
                 placeholder="Your Email"
                 className="form__control"
+                onChange={handleInput}
+                autoComplete="off"
+                value={contact.email}
               />
             </div>
 
             <div className="form__input-div">
               <input
                 type="text"
+                name="subject"
+                required
                 placeholder="Your Subject"
                 className="form__control"
+                onChange={handleInput}
+                autoComplete="off"
+                value={contact.subject}
               />
             </div>
           </div>
@@ -98,11 +134,16 @@ const Contact = () => {
           <div className="form__input-div">
             <textarea
               placeholder="Your Message"
+              name="message"
+              required
               className="form__control textarea"
+              onChange={handleInput}
+              autoComplete="off"
+              value={contact.message}
             ></textarea>
           </div>
 
-          <button className="button">
+          <button type="submit">
             Send Message
             <span className="button__icon contact__button-icon">
               <FiSend />

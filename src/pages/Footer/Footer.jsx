@@ -34,7 +34,7 @@ const Footer = () => {
 
               <div>
                 <span className="info__title">Call Me</span>
-                <h4 className="info__desc">8108411828</h4>
+                <h4 className="info__desc">9988776655</h4>
               </div>
             </div>
           </div>

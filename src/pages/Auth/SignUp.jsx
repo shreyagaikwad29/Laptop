@@ -70,6 +70,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import './SignUp.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';// Import useHistory for navigation
+import Signupimg from "../../assets/signup.png";
 
 const SignUp = () => {
     const navigate = useNavigate(); // Initialize useHistory
@@ -108,25 +109,45 @@ const SignUp = () => {
         //     } catch (error) {
         //         console.error('Sign-up failed:', error.response.data); // Handle error
         //     }
+        // },   http://localhost:5000/api/signup
+        // onSubmit: async (values) => {
+        //     try {
+        //         const response = await axios.post('http://localhost:3000', values);
+        //         console.log(response)
+        //         localStorage.setItem('user', JSON.stringify(response.data));
+        //         setPopupMessage(`Username: ${values.name}\nSign-up successful!`);
+        //         navigate('/login'); // Set success message
+        //         console.log(response.data); // Handle successful sign-up
+        //     } catch (error) {
+        //         setPopupMessage('Sign-up failed: ' + error.response.data.message); // Set error message
+        //         console.error('Sign-up failed:', error.response.data); // Handle error
+        //     }
         // },
-        onSubmit: async (values) => {
-            try {
-                const response = await axios.post('http://localhost:5000/api/signup', values);
-                localStorage.setItem('user', JSON.stringify(response.data));
-                setPopupMessage(`Username: ${values.name}\nSign-up successful!`);
-                navigate('/login'); // Set success message
-                console.log(response.data); // Handle successful sign-up
-            } catch (error) {
-                setPopupMessage('Sign-up failed: ' + error.response.data.message); // Set error message
-                console.error('Sign-up failed:', error.response.data); // Handle error
-            }
-        },
     });
 
+
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+        console.log(user);
+        try {
+            const response =  await fetch('http://localhost:3009/api/auth/Signup',{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+            });
+            console.log(response);
+        } catch (error) {
+            console.log("register", error)
+        }
+        
+    }
     return (
         <div className="signup-container">
+            <img src={Signupimg} />
             <h2>Sign Up</h2>
-            <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name</label>
                     <input
@@ -163,7 +184,7 @@ const SignUp = () => {
                         className="signup-input"
                         id="mobile"
                         name="mobile"
-                        type="text"
+                        type="number"
                         onChange={formik.handleChange}
                         value={formik.values.mobile}
                     />
@@ -184,21 +205,6 @@ const SignUp = () => {
                     />
                     {formik.touched.password && formik.errors.password ? (
                         <div className="error">{formik.errors.password}</div>
-                    ) : null}
-                </div>
-
-                <div>
-                    <label htmlFor="confirmPassword">Confirm Password</label>
-                    <input
-                        className="signup-input"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        type="password"
-                        onChange={formik.handleChange}
-                        value={formik.values.confirmPassword}
-                    />
-                    {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-                        <div className="error">{formik.errors.confirmPassword}</div>
                     ) : null}
                 </div>
 
