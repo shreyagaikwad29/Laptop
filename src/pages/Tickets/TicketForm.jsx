@@ -34,7 +34,7 @@ const TicketForm = () => {
     e.preventDefault();
 
     try {
-      const peopleResponse = await axios.get('http://localhost:5000/people');
+      const peopleResponse = await axios.post('http://localhost:5000/people');
       const people = peopleResponse.data;
       const assignedPerson = people[Math.floor(Math.random() * people.length)];
 
@@ -61,6 +61,7 @@ const TicketForm = () => {
           <input
             type="text"
             name="name"
+            className='name'
             value={formData.name}
             onChange={handleChange}
             required
@@ -71,6 +72,7 @@ const TicketForm = () => {
           <input
             type="email"
             name="email"
+            className='email'
             value={formData.email}
             onChange={handleChange}
             required
@@ -81,6 +83,7 @@ const TicketForm = () => {
           <input
             type="text"
             name="mobile"
+            className='mobile'
             value={formData.mobile}
             onChange={handleChange}
             required

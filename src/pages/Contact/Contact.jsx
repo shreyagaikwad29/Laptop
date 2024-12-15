@@ -35,7 +35,7 @@ const Contact = () => {
     console.log(contact);
 };
   return (
-    <section className="contact section"style={{color:'white'}}>
+    <section className="contact_section"style={{color:'white'}}>
       <h2 className="section__title">
         Get In <span>Touch</span>
       </h2>

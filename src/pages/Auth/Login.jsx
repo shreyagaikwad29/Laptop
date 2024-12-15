@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import './Login.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';
-
+const URL = "http://localhost:3010/api/auth/Login";
 
 const Login = () => {
     // const navigate = useNavigate(); 
@@ -59,6 +59,7 @@ const Login = () => {
         email: "",
         password: "",
     });
+    const navigate = useNavigate();
 
     const handleInput = (e) =>{
         let name = e.target.name;
@@ -70,10 +71,30 @@ const Login = () => {
         });
     };
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
-        console.log(user);
-    }
+        try {
+            const response = await fetch(URL, {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+            });
+            console.log("login form", response);
+
+            if (response.ok) {
+                alert("login successful");
+                setUser({ email:"", password:"" });  
+                navigate("/"); 
+            }else{
+                alert("invalid credential");
+                console.log("invalid credential")
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         // <div className="login-container">
