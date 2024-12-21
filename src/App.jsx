@@ -27,6 +27,7 @@ const App=()=> {
             <Route path='Login' element={<Login/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
             <Route path='ticket' element={<TicketForm/>}/>
+            <Route path='ticketlist' element={<TicketList/>}/>
             <Route path='*' element={<Error/>}/>
                              
         </Routes>

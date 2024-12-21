@@ -96,7 +96,7 @@ textarea {
 }
 
 
-  button{
+  /* button{
     color: #4CAF50;
     text-transform: capitalize;
     font-family: var(--second-font);
@@ -114,16 +114,16 @@ textarea {
     height: 3rem;
     width: 15rem;
     transition: border-color 0.3s;
-  }
+  } */
 
-  button:hover{
+  /* button:hover{
     box-shadow: inset 10px var(--btn-color);
     background-color: black;
-  }
+  } */
 
-  a:hover, a.active{
+  /* a:hover, a.active{
     color: #4CAF50;
-  }
+  } */
 
 
   .section-hero{

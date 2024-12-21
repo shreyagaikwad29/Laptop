@@ -24,7 +24,7 @@
 
 .btn-a {
   background-color: #4CAF50; /* Green */
-  color: white;
+  color: whitesmoke;
   border: none;
   margin-top: 20px;
   padding: 10px 20px;
@@ -32,6 +32,12 @@
   font-family: var(--second-font);
   text-decoration: none; /* Remove underline for the link */
   border-radius: 5px; /* Add rounded corners */
+}
+
+.btn-a:hover{
+  background-color: black;
+    color: whitesmoke;
+    box-shadow: 2px 2px 2px 2px #3c943f;
 }
 
 /* Media Queries */

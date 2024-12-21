@@ -14,8 +14,8 @@ const Home = (onShowAuth) => {
   return (
     <div className="row">
         <div className="col" style={{padding:'120px'}}>
-            <h1 style={{textAlign:'center',padding:'30px',color:'white'}}>AutumnDigi</h1>
-            <p style={{textAlign:'center',color:'white'}}>Complete solutions for all your fintech needs</p>
+            <h1 style={{textAlign:'center',padding:'30px',color:'white', fontFamily:'var(--second-font)', fontSize:'var(--big-font-size)'}}>AutumnDigi</h1>
+            <p style={{textAlign:'center',color:'white', fontFamily:'var(--body-font)', fontSize: 'var(--large-font-size)'}}>Complete solutions for all your fintech needs</p>
             <button className='btn-a' onClick={handlepage} >Visit us to know more</button>
         </div>
         </div>

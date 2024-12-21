@@ -1,93 +1,26 @@
-/* TicketForm.css */
-.ticket-form-container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
+.section-ticket{
+    background-color: black;
+    color: whitesmoke;
 }
 
-h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-label {
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.name:focus,
-.email:focus,
-textarea,
-select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease-in-out;
-}
-
-.name:focus,
-.email:focus,
-textarea:focus,
-select:focus {
-    border-color:  #00b167;
-    outline: none;
-}
-
-textarea {
-    height: 100px;
-    resize: vertical;
-}
-
-.save {
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
+select{
+    margin-bottom: 10px;
+    width: 50%;
+    height: 2rem;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
 }
 
-.save[type="submit"] {
-    background-color:  #00b167;
-    color: white;
+select:hover{
+    border: none;
 }
 
-.reset[type="button"] {
-    background-color: #6c757d;
-    color: white;
+.issue{
+    width: 60%;
+    height: 10rem;
+    border: none;
 }
 
-.save:hover {
-    opacity: 0.9;
-}
 
-.save:focus {
-    outline: none;
-}
-
-.ticket-form-container button[type="submit"]:hover {
-    background-color: #00b167;
-}
-
-.ticket-form-container button[type="button"]:hover {
-    background-color: #5a6268;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

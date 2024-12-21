@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { FiSend } from "react-icons/fi";
+import "./Contact.css";
+import { useNavigate } from "react-router-dom";
 import {
   FaEnvelopeOpen,
   FaPhoneSquareAlt,
@@ -7,12 +10,11 @@ import {
   FaYoutube,
   FaDribbble,
 } from "react-icons/fa";
+const URL = "http://localhost:3010/api/form/contact";
 
-import { FiSend } from "react-icons/fi";
-
-import "./Contact.css";
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [contact, setContact] = useState({
     name: "",
     email: "",
@@ -30,9 +32,35 @@ const Contact = () => {
     })
   };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault();
     console.log(contact);
+    try {
+      const response = await fetch(URL, {
+          method:"POST",
+          headers:{
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contact),
+      });
+      console.log("Contact form", response);
+
+      if (response.ok) {
+          alert("Message send successfully");
+          setContact({ 
+            name: "",
+            email: "",
+            subject: "",
+            message: "" });  
+          navigate("/contact"); 
+      }else{
+          alert("invalid credential");
+          console.log("invalid credential")
+      }
+  } catch (error) {
+      console.log(error);
+  }
+
 };
   return (
     <section className="contact_section"style={{color:'white'}}>
@@ -143,7 +171,7 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <button type="submit">
+          <button type="submit" className="btn">
             Send Message
             <span className="button__icon contact__button-icon">
               <FiSend />

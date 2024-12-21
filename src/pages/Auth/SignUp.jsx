@@ -182,11 +182,13 @@ const SignUp = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(user),
+                credentials: 'include'
             });
+            
             console.log("SignUp form", response);
 
             if (response.ok) {
-                alert("login successful");
+                alert("Sign up successful");
                 setUser({ 
                     name: "",
                     email:"",
@@ -283,9 +285,17 @@ const SignUp = () => {
                 <div className="section-registration">
                     <div className="container grid grid-two-cols">
                         <div className="registration-image">
-                            <img src={Signupimg} alt="a girl is typing to do registration"
-                            width="450"
-                            height="450" />
+                        <lottie-player
+                        src="https://lottie.host/dbad61e5-9996-45cd-8145-85b6b239009d/ywZJ8SWsOM.json"  // Lottie animation JSON file
+                        background="##FFFFFF"  // Background color
+                        speed="1"  // Speed of the animation
+                        style={{ width: '500px', height: '500px' }}  // Style for the animation
+                        loop  // Animation will loop
+                          // Controls like play, pause, etc.
+                        autoplay  // Start animation immediately
+                        direction="1"  // Animation direction
+                        mode="normal"  // Mode of animation (normal or reversed)
+                    ></lottie-player>
                         </div>
 
                         
@@ -297,6 +307,7 @@ const SignUp = () => {
                                 <form onSubmit={handleSubmit}>
                                     <div>
                                         <label htmlFor="name">Name</label>
+                                        <br />
                                         <input 
                                         type="text" 
                                         name='name'
@@ -310,6 +321,7 @@ const SignUp = () => {
 
                                     <div>
                                         <label htmlFor="email">Email</label>
+                                        <br />
                                         <input 
                                         type="email" 
                                         name='email'

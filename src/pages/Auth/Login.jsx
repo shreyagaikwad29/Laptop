@@ -1,11 +1,9 @@
 // src/Login.js
 import React, { useState } from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
 import './Login.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';
 const URL = "http://localhost:3010/api/auth/Login";
+
 
 const Login = () => {
     // const navigate = useNavigate(); 
@@ -63,7 +61,7 @@ const Login = () => {
 
     const handleInput = (e) =>{
         let name = e.target.name;
-        let value = e.target.value;
+        let value = e.target.value;  
 
         setUser({
             ...user,
@@ -85,7 +83,9 @@ const Login = () => {
 
             if (response.ok) {
                 alert("login successful");
-                setUser({ email:"", password:"" });  
+                setUser({ 
+                    email:"", 
+                    password:"" });  
                 navigate("/"); 
             }else{
                 alert("invalid credential");
@@ -139,7 +139,16 @@ const Login = () => {
                 <div className="section-login">
                     <div className="container grid grid-two-cols">
                         <div className="login-image">
-                            <img src="" alt="" />
+                        <lottie-player
+                            src="https://lottie.host/a24a101e-a63a-457e-a7f2-76088e0f94be/sahdouugyY.json"  // Lottie animation JSON file
+                            background="##FFFFFF"  // Background color
+                            speed="1"  // Speed of the animation
+                            style={{ width: '300px', height: '300px' }}  // Style for the animation
+                            loop  // Animation will loop // Controls like play, pause, etc.
+                            autoplay  // Start animation immediately
+                            direction="1"  // Animation direction
+                            mode="normal"  // Mode of animation (normal or reversed)
+                        ></lottie-player>
                         </div>
 
 
@@ -151,6 +160,7 @@ const Login = () => {
                             <form onSubmit={handleSubmit}>
                                 <div>
                                     <label htmlFor="email">Email</label>
+                                    <br />
                                     <input 
                                     type="email"
                                     name='email'
@@ -164,6 +174,7 @@ const Login = () => {
 
                                 <div>
                                     <label htmlFor="password">Password</label>
+                                    <br />
                                     <input 
                                     type="password"
                                     name='password'
