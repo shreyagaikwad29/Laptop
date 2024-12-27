@@ -2,62 +2,18 @@
 import React, { useState } from 'react';
 import './Login.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../store/auth';
 const URL = "http://localhost:3010/api/auth/Login";
 
 
 const Login = () => {
-    // const navigate = useNavigate(); 
-    // const formik = useFormik({
-    //     initialValues: {
-    //         email: '',
-    //         password: '',
-    //     },
-    //     validationSchema: Yup.object({
-    //         email: Yup.string()
-    //             .email('Invalid email address')
-    //             .required('Required'),
-    //         password: Yup.string()
-    //             .min(6, 'Must be 6 characters or more')
-    //             .required('Required'),
-    //     }),
-    //     onSubmit: async (values) => {
-    //         try {
-    //             const response = await axios.get('http://localhost:5000/users');
-                
-    //             // Check if the response is valid
-    //             if (!response || !response.data) {
-    //                 console.error('No data returned from the API');
-    //                 return;
-    //             }
-        
-    //             const users = response.data;
-        
-    //             // Simulating login check
-    //             const user = users.find(user => user.email === values.email && user.password === values.password);
-    //             if (user) {
-    //                 localStorage.setItem('user', JSON.stringify(user));
-    //                 console.log('Login successful:', user);
-    //                 navigate('/'); // Navigate to home page on successful login
-    //             } else {
-    //                 console.error('Invalid credentials');
-    //             }
-    //         } catch (error) {
-    //             // Log the error message for debugging
-    //             console.error('Error fetching users:', error.message);
-    //             if (error.response) {
-    //                 // The request was made and the server responded with a status code
-    //                 console.error('Response data:', error.response.data);
-    //                 console.error('Response status:', error.response.status);
-    //             }
-    //         }
-    //     },
-        
-    // });
+   
     const [user, setUser] = useState({
         email: "",
         password: "",
     });
     const navigate = useNavigate();
+    const { storetokenInLS }= useAuth();
 
     const handleInput = (e) =>{
         let name = e.target.name;
@@ -83,6 +39,9 @@ const Login = () => {
 
             if (response.ok) {
                 alert("login successful");
+                const res_data = await response.json();
+                console.log("res from server", res_data);
+                storetokenInLS(res_data.token);
                 setUser({ 
                     email:"", 
                     password:"" });  

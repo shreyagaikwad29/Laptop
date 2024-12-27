@@ -13,6 +13,7 @@ import Features from './pages/Features/Features';
 import TicketForm from './pages/Tickets/TicketForm';
 import TicketList from './pages/Tickets/TicketList';
 import Error from './pages/Error';
+import Logout from './pages/Auth/Logout';
 
 const App=()=> {
   return (
@@ -26,6 +27,7 @@ const App=()=> {
             <Route path="Contact" element={<Contact/>}/>
             <Route path='Login' element={<Login/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
+            <Route path='Logout' element={<Logout/>}/>
             <Route path='ticket' element={<TicketForm/>}/>
             <Route path='ticketlist' element={<TicketList/>}/>
             <Route path='*' element={<Error/>}/>

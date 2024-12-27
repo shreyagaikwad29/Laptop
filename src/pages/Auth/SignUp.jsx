@@ -71,87 +71,12 @@ import axios from 'axios';
 import './SignUp.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';// Import useHistory for navigation
 import Signupimg from "../../assets/signup.png";
+import { useAuth } from '../../store/auth';
 const URL = "http://localhost:3010/api/auth/Signup";
 
 const SignUp = () => {
     const navigate = useNavigate(); // Initialize useHistory
-    // const [popupMessage, setPopupMessage] = useState('');
-
-    // const formik = useFormik({
-    //     initialValues: {
-    //         name: '',
-    //         email: '',
-    //         mobile: '',
-    //         password: '',
-    //         confirmPassword: '',
-    //     },
-    //     validationSchema: Yup.object({
-    //         name: Yup.string()
-    //             .max(50, 'Must be 50 characters or less')
-    //             .required('Required'),
-    //         email: Yup.string()
-    //             .email('Invalid email address')
-    //             .required('Required'),
-    //         mobile: Yup.string()
-    //             .matches(/^[0-9]{10}$/, 'Must be exactly 10 digits')
-    //             .required('Required'),
-    //         password: Yup.string()
-    //             .min(6, 'Must be 6 characters or more')
-    //             .required('Required'),
-    //         confirmPassword: Yup.string()
-    //             .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    //             .required('Required'),
-    //     }),
-    //     // onSubmit: async (values) => {
-    //     //     try {
-    //     //         const response = await axios.post('http://localhost:5000/users', values);
-    //     //         localStorage.setItem('user', JSON.stringify(response.data));
-    //     //         console.log(response.data); // Handle successful sign-up
-    //     //     } catch (error) {
-    //     //         console.error('Sign-up failed:', error.response.data); // Handle error
-    //     //     }
-    //     // },   http://localhost:5000/api/signup
-    //     // onSubmit: async (values) => {
-    //     //     try {
-    //     //         const response = await axios.post('http://localhost:3000', values);
-    //     //         console.log(response)
-    //     //         localStorage.setItem('user', JSON.stringify(response.data));
-    //     //         setPopupMessage(`Username: ${values.name}\nSign-up successful!`);
-    //     //         navigate('/login'); // Set success message
-    //     //         console.log(response.data); // Handle successful sign-up
-    //     //     } catch (error) {
-    //     //         setPopupMessage('Sign-up failed: ' + error.response.data.message); // Set error message
-    //     //         console.error('Sign-up failed:', error.response.data); // Handle error
-    //     //     }
-    //     // },
-    // });
-
-    // const handleSubmit = async (e) =>{
-    //     e.preventDefault();
-    //     console.log(user);
-    //     try {
-    //         const response =  await fetch('http://localhost:3009/api/auth/Signup',{
-    //             method: "POST",
-    //             headers:{
-    //                 "Content-Type": "application/json",
-    //             },
-    //             body: JSON.stringify(user),
-    //         });
-
-    //         if (response.ok) {
-    //             const res_data = await response.json();
-    //             console.log("res from server", res_data);
-    //             storetokenInLS(res_data.token);
-                
-    //             setUser({name: "", email:"", mobile:"", password:""})
-    //             navigate("/Login");
-    //         }
-    //         console.log(response);
-    //     } catch (error) {
-    //         console.log("register", error)
-    //     }
-        
-    // }
+    const { storetokenInLS }= useAuth();
 
     const [user, setUser] = useState({
         name: "",
@@ -189,6 +114,10 @@ const SignUp = () => {
 
             if (response.ok) {
                 alert("Sign up successful");
+                const res_data = await response.json();
+                console.log("res from server", res_data);
+                storetokenInLS(res_data.token);
+                // localStorage.setItem("token", res_data);
                 setUser({ 
                     name: "",
                     email:"",
