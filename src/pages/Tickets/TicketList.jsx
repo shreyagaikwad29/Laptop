@@ -11,7 +11,6 @@ const TicketList = () => {
   const navigate  = useNavigate();
 
   // List of possible assigned persons
-  const assignedPersons = ["John Doe", "Jane Smith", "Alice Johnson", "Bob Brown", "Chris White"];
 
   useEffect(() => {
     fetchTickets();
@@ -29,12 +28,11 @@ const TicketList = () => {
       if (response.ok) {
         let data = await response.json();
 
-        // // Randomly assign a person to each ticket
-        // data = data.map(ticket => ({
-        //   ...ticket,
-        //   createdAt: ticket.createdAt || new Date().toISOString(),
-        //   assignedPerson: assignedPersons[Math.floor(Math.random() * assignedPersons.length)],
-        // }));
+        // Randomly assign a person to each ticket
+        data = data.map(ticket => ({
+          ...ticket,
+          assignedPerson: ticket.assignedPerson || "Unassigned",
+        }));
 
         setTickets(data);
       } else {

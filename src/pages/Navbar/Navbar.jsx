@@ -4,7 +4,8 @@ import { FaBasketShopping } from "react-icons/fa6";
 import "./Navbar.css";
 import { Link } from 'react-router-dom';
 import logo from "../../assets/logo.png";
-import { useAuth } from '../../Auth';
+import { useAuth } from '../../store/auth';
+
 
 const Navbar = () => {
     const [menu, setMenu] = useState('');
@@ -21,7 +22,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-right">
                 <p>
-                     {isloggedin ? <Link to="/Logout" className='link'>Logout</Link> : <> <Link to="/Login" className='link'>Login</Link> | <Link to="/SignUp" className='link'>Sign Up</Link>
+                     {isLoggedIn ? <Link to="/Logout" className='link'>Logout</Link> : <> <Link to="/Login" className='link'>Login</Link> | <Link to="/SignUp" className='link'>Sign Up</Link>
                     </>}
                    
                 </p>
