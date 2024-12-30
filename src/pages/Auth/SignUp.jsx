@@ -72,6 +72,7 @@ import './SignUp.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';// Import useHistory for navigation
 import Signupimg from "../../assets/signup.png";
 import { useAuth } from '../../store/auth';
+import { toast } from 'react-toastify';
 const URL = "http://localhost:3010/api/auth/Signup";
 
 const SignUp = () => {
@@ -113,7 +114,7 @@ const SignUp = () => {
             console.log("SignUp form", response);
 
             if (response.ok) {
-                alert("Sign up successful");
+                toast.success("Sign up successful");
                 const res_data = await response.json();
                 console.log("res from server", res_data);
                 storetokenInLS(res_data.token);
@@ -125,7 +126,7 @@ const SignUp = () => {
                     password:"" });  
                 navigate("/Login"); 
             }else{
-                alert("invalid credential");
+                toast.error("invalid credential");
                 console.log("invalid credential")
             }
         } catch (error) {

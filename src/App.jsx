@@ -14,10 +14,12 @@ import TicketForm from './pages/Tickets/TicketForm';
 import TicketList from './pages/Tickets/TicketList';
 import Error from './pages/Error';
 import Logout from './pages/Auth/Logout';
+import { ToastContainer } from 'react-toastify';
 
 const App=()=> {
   return (
     <>
+      <ToastContainer/>
        <Navbar/>
        <Routes>
             <Route path="/" element={<Home/>}/>

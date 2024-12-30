@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './Login.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
+import { toast } from 'react-toastify';
 const URL = "http://localhost:3010/api/auth/Login";
 
 
@@ -38,7 +39,7 @@ const Login = () => {
             console.log("login form", response);
 
             if (response.ok) {
-                alert("login successful");
+                toast.success("login successful");
                 const res_data = await response.json();
                 console.log("res from server", res_data);
                 storetokenInLS(res_data.token);
@@ -46,52 +47,16 @@ const Login = () => {
                     email:"", 
                     password:"" });  
                 navigate("/"); 
-            }else{
-                alert("invalid credential");
+            }else{ 
+                toast.error("invalid credential");
                 console.log("invalid credential")
             }
-        } catch (error) {
+        } catch (error) { 
             console.log(error);
         }
     };
 
     return (
-        // <div className="login-container">
-        //     <h2>Login</h2>
-        //     <form onSubmit={formik.handleSubmit}>
-        //         <div>
-        //             <label htmlFor="email">Email</label>
-        //             <input
-        //                 className="login-input"
-        //                 id="email"
-        //                 name="email"
-        //                 type="email"
-        //                 onChange={formik.handleChange}
-        //                 value={formik.values.email}
-        //             />
-        //             {formik.touched.email && formik.errors.email ? (
-        //                 <div className="error">{formik.errors.email}</div>
-        //             ) : null}
-        //         </div>
-
-        //         <div>
-        //             <label htmlFor="password">Password</label>
-        //             <input
-        //                 className="login-input"
-        //                 id="password"
-        //                 name="password"
-        //                 type="password"
-        //                 onChange={formik.handleChange}
-        //                 value={formik.values.password}
-        //             />
-        //             {formik.touched.password && formik.errors.password ? (
-        //                 <div className="error">{formik.errors.password}</div>
-        //             ) : null}
-        //         </div>
-
-        //         <button type="submit" className="login-button">Login</button>
-        //     </form>
-        // </div>
         <>
         <section>
             <main>
