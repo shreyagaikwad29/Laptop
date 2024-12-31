@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './TicketForm.css'; // Import the CSS file
+import { toast } from 'react-toastify';
+import { useAuth } from '../../store/auth';
 const URL = "http://localhost:3010/api/ticketform/ticket";
+
 
 const TicketForm = () => {
 const navigate = useNavigate(); 
+const { storetokenInLS }= useAuth();
 
 const [ticket, setTicket] = useState({
   name:"",
@@ -40,7 +44,10 @@ const handleSubmit = async (e) =>{
     console.log("Ticket", response);
 
     if (response.ok) {
-        alert("Ticket Created successfully !!");
+        toast.success("Ticket Created successfully !!");
+        const res_data = await response.json();
+        console.log("res from server", res_data);
+        storetokenInLS(res_data.token);
         setTicket({ 
           name:"",
           email:"",

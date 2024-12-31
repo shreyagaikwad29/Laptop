@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './TicketList.css';
 import { useNavigate } from 'react-router-dom';
-import { format } from 'date-fns';
 
 const URL = "http://localhost:3010/api/ticketform/ticketlist"; // Endpoint to fetch tickets
 
@@ -11,6 +10,7 @@ const TicketList = () => {
   const navigate  = useNavigate();
 
   // List of possible assigned persons
+  const assignedPersons = ["John Doe", "Jane Smith", "Alice Johnson", "Bob Brown", "Chris White"];
 
   useEffect(() => {
     fetchTickets();
@@ -31,7 +31,7 @@ const TicketList = () => {
         // Randomly assign a person to each ticket
         data = data.map(ticket => ({
           ...ticket,
-          assignedPerson: ticket.assignedPerson || "Unassigned",
+          assignedPerson: assignedPersons[Math.floor(Math.random() * assignedPersons.length)],
         }));
 
         setTickets(data);
@@ -53,7 +53,7 @@ const TicketList = () => {
       ) :
         tickets.length === 0 ? (
           <p>No tickets available.</p>
-        ) : (
+          ) : (
       <table className="ticket-table">
         <thead>
           <tr>
@@ -64,7 +64,6 @@ const TicketList = () => {
             <th>Customer Type</th>
             <th>Issue</th>
             <th>Assigned Person</th>
-            <th>Created At</th>
           </tr>
         </thead>
         <tbody>
@@ -76,8 +75,7 @@ const TicketList = () => {
               <td>{ticket.mobile}</td>
               <td>{ticket.customerType}</td>
               <td>{ticket.issue}</td>
-              <td>{ticket.assignedPerson || "Unassigned"}</td>
-              <td>{new Date(ticket.createdAt).toLocaleString()}</td>
+              <td>{ticket.assignedPerson}</td>
             </tr>
           ))}
         </tbody>
