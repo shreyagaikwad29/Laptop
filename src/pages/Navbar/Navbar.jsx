@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { FaLaptopCode } from "react-icons/fa";
-import { FaBasketShopping } from "react-icons/fa6";
 import "./Navbar.css";
 import { Link } from 'react-router-dom';
 import logo from "../../assets/logo.png";
@@ -22,8 +20,14 @@ const Navbar = () => {
             </div>
             <div className="navbar-right">
                 <p>
-                     {isLoggedIn ? <Link to="/Logout" className='link'>Logout</Link> : <> <Link to="/Login" className='link'>Login</Link> | <Link to="/SignUp" className='link'>Sign Up</Link>
-                    </>}
+                    {isLoggedIn ? (
+                        <Link to="/Logout" className="link">Logout</Link>
+                    ) : (
+                        <>
+                        <Link to="/Login" className="link">Login</Link> | 
+                        <Link to="/SignUp" className="link">Sign Up</Link>
+                        </>
+                    )}
                    
                 </p>
             </div>

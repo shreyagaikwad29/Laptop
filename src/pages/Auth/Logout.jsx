@@ -1,17 +1,20 @@
-import React, { useEffect } from 'react'
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../../Auth';
+import React, { useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../store/auth";
 
-export const Logout = () => {
+const Logout = () => {
+  const { Logoutuser, isLoggedIn } = useAuth();
 
-  const{Logoutuser} = useAuth();
-    useEffect(()=>{
-        Logoutuser();
-    },[Logoutuser]);
+  useEffect(() => {
+    Logoutuser();
+  }, [Logoutuser]);
 
+  // Redirect to login if the user is no longer logged in
+  if (!isLoggedIn) {
+    return <Navigate to="/Login" />;
+  }
 
+  return <div>Logging out...</div>; // Optional loading state
+};
 
-  return <Navigate to={"/Login"}/>;
-}
-
-export default Logout
+export default Logout;

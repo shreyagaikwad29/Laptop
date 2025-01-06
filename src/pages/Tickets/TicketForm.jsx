@@ -95,7 +95,7 @@ const handleSubmit = async (e) =>{
                                         <input 
                                         type="text" 
                                         name='name'
-                                        placeholder='name'
+                                        placeholder='Name'
                                         id='name'
                                         required
                                         autoComplete='off'
@@ -109,7 +109,7 @@ const handleSubmit = async (e) =>{
                                         <input 
                                         type="email" 
                                         name='email'
-                                        placeholder='email'
+                                        placeholder='Email'
                                         id='email'
                                         required
                                         autoComplete='off'
@@ -123,7 +123,7 @@ const handleSubmit = async (e) =>{
                                         <input 
                                         type="number" 
                                         name='mobile'
-                                        placeholder='mobile'
+                                        placeholder='Mobile'
                                         id='mobile'
                                         required
                                         autoComplete='off'

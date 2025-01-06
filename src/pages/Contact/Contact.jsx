@@ -10,6 +10,8 @@ import {
   FaYoutube,
   FaDribbble,
 } from "react-icons/fa";
+import { useAuth } from "../../store/auth";
+
 const URL = "http://localhost:3010/api/form/contact";
 
 
@@ -21,6 +23,19 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+
+  const [userData, setUserData] = useState(true);
+  const {user} = useAuth();
+
+  if (userData && user) {
+    setContact({
+      username: user.username,
+      email: user.email,
+      message: "",
+    })
+
+    setUserData(false);
+  }
 
   const handleInput = (e) =>{
     const name = e.target.name;
