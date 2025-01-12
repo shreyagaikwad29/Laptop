@@ -67,6 +67,8 @@ const Contact = () => {
             email: "",
             subject: "",
             message: "" });  
+            const data = await response.json();
+            console.log(data);
           navigate("/contact"); 
       }else{
           alert("invalid credential");

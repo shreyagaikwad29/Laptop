@@ -5,8 +5,8 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) =>{
     const [token, setToken] = useState(localStorage.getItem("token"));
     const [user, setUser] = useState("");
-    const [ticket, setTicket] = useState("");
-    const authorizationToken = `Bearer ${token}`;
+    // const [ticket, setTicket] = useState("");
+    // const authorizationToken = `Bearer ${token}`;
 
 
     const storetokenInLS = (serverToken)=>{
@@ -27,7 +27,7 @@ export const AuthProvider = ({children}) =>{
         const response = await fetch("http://localhost:3010/api/auth/user", {
             method: "GET",
             headers: {
-                Authorization: authorizationToken,
+                Authorization: `Bearer ${token}`,
             },
         });
 
@@ -46,14 +46,19 @@ export const AuthProvider = ({children}) =>{
 
   useEffect(()=>{
     userAuthentication();
-  },[]);
+  },[token]);
 
-    return ( <AuthContext.Provider value={{isLoggedIn, storetokenInLS, Logoutuser, userAuthentication}}>
+    return ( <AuthContext.Provider value={{isLoggedIn, storetokenInLS, Logoutuser, user, userAuthentication, token}}>
         {children}
     </AuthContext.Provider>
     )
 };
 
 export const useAuth=() =>{
-    return useContext(AuthContext);
+    const authContextValue = useContext(AuthContext);
+    if (!authContextValue) {
+      
+        throw new Error("useAuth used putside of the Provider")
+    }
+    return authContextValue;
 }
