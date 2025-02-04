@@ -17,7 +17,7 @@ const TicketList = () => {
   const navigate = useNavigate();
 
   const assignedPersons = ["John Doe", "Jane Smith", "Alice Johnson", "Bob Brown", "Chris White"];
-
+  const userEmail = localStorage.getItem("userEmail");
   useEffect(() => {
     fetchTickets();
   }, []);
@@ -32,7 +32,9 @@ const TicketList = () => {
       const response = await fetch(URL);
       if (response.ok) {
         let data = await response.json();
-        data = data.map(ticket => ({
+        data = data
+        .filter((ticket) => ticket.email === userEmail)
+        .map(ticket => ({
           ...ticket,
           assignedPerson: assignedPersons[Math.floor(Math.random() * assignedPersons.length)],
         }));

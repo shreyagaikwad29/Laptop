@@ -48,6 +48,7 @@ const handleSubmit = async (e) =>{
         const res_data = await response.json();
         console.log("res from server", res_data);
         storetokenInLS(res_data.token);
+        localStorage.setItem("userEmail", ticket.email);
         setTicket({ 
           name:"",
           email:"",
@@ -61,7 +62,8 @@ const handleSubmit = async (e) =>{
         console.log("invalid credential")
     }
 } catch (error) {
-    console.log(error);
+    console.error("Error creating ticket:", error);
+    toast.error("Something went wrong. Please try again later.");
 }
 }
 

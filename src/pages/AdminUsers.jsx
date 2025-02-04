@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 
@@ -45,6 +46,11 @@ const AdminUsers = () => {
                     Authorization: `Bearer ${token}`,
                 }
             });
+            if (response.ok) {
+                toast.success("User Deleted Successfully");
+            }else{
+                toast.error("User Not Deleted");
+            }
             if (!response.ok) {
                 throw new Error(`Error: ${response.status} - ${response.statusText}`);
             }

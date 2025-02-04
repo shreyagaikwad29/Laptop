@@ -18,6 +18,7 @@ import AdminLayout from './component/layout/AdminLayout';
 import AdminUsers from './pages/AdminUsers';
 import AdminContacts from './pages/AdminContacts';
 import AdminTickets from './pages/AdminTickets';
+import AdminUpdate from './pages/AdminUpdate';
 
 
 const App=()=> {
@@ -39,8 +40,9 @@ const App=()=> {
             <Route path='*' element={<Error/>}/>
             <Route path='admin' element={<AdminLayout/>}>
                 <Route path='users' element={<AdminUsers/>}/>
+                <Route path='users/:id/edit' element={<AdminUpdate/>}/>
                 <Route path='contacts' element={<AdminContacts/>}/>
-                <Route path='tickets' element={<AdminTickets/>}/>
+                <Route path='admintickets' element={<AdminTickets/>}/>
             </Route>             
         </Routes>
        <Footer/>

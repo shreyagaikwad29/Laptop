@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./Home.css";
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import TicketForm from '../Tickets/TicketForm';
+import { useAuth } from '../../store/auth';
 
 
-const Home = (onShowAuth) => {
+const Home = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const { isAuthenticated } = useAuth();
 
     const handlepage =()=>{
-        navigate('/ticket');
+        if (!isAuthenticated) {
+            // Redirect to sign-up page first with a return state
+            navigate('/SignUp', { state: { returnTo: location.pathname } });
+        } else {
+            // If authenticated, navigate to ticket creation page
+            navigate('/ticket');
+        }
+        
     }
+
+    useEffect(() => {
+        // If user navigates to login and logs in successfully, redirect to the return path
+        if (isAuthenticated && location.state?.returnTo) {
+            navigate(location.state.returnTo);
+        }
+    }, [isAuthenticated, location.state, navigate]);
 
   return (
     <div className="row">

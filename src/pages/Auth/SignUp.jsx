@@ -69,7 +69,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import './SignUp.css'; // Import the CSS file
-import { useNavigate } from 'react-router-dom';// Import useHistory for navigation
+import { useLocation, useNavigate } from 'react-router-dom';// Import useHistory for navigation
 import Signupimg from "../../assets/signup.png";
 import { useAuth } from '../../store/auth';
 import { toast } from 'react-toastify';
@@ -85,6 +85,8 @@ const SignUp = () => {
         mobile: "",
         password: ""
     });
+
+    const location = useLocation();
 
     const handleInput = (e) =>{
         e.preventDefault();
@@ -124,7 +126,8 @@ const SignUp = () => {
                     email:"",
                     mobile:"",
                     password:"" });  
-                navigate("/Login"); 
+                // navigate("/Login");
+                navigate('/Login', { state: { returnTo: location.state?.returnTo || '/' } }); 
             }else{
                 toast.error("invalid credential");
                 console.log("invalid credential")
